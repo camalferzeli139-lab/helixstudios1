@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d16">
+  <meta name="description" content="HELİXSTUDİOS — Future • Technology • Creativity. Rəqəmsal həllər, proqram təminatı və texnologiya.">
+  <title>HELİXSTUDİOS — Future • Technology • Creativity</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg:#080d16; --surface:#0e1725; --surface-2:#121e2e;
+      --text:#f4f7fc; --muted:#a4b0c1; --line:rgba(192,211,235,.13);
+      --blue:#55aaff; --blue-2:#237bd2; --max:1160px;
+      --shadow:0 24px 70px rgba(0,0,0,.28);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(var(--max),calc(100% - 44px));margin-inline:auto}
+    .topline{height:3px;background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+    header{position:sticky;top:0;z-index:50;background:rgba(8,13,22,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:1.35px;font-size:15px;white-space:nowrap}
+    .brand-mark{width:39px;height:39px;border:1.5px solid var(--blue);border-radius:12px;display:grid;place-items:center;color:var(--blue);font-size:21px;font-weight:900;box-shadow:inset 0 0 18px #248eff12,0 0 22px #248eff13}
+    .navlinks{display:flex;align-items:center;gap:27px;color:#c0cad8;font-size:13px;font-weight:600}
+    .navlinks a{transition:color .2s}.navlinks a:hover{color:var(--blue)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .language{appearance:none;background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px 11px;font-size:13px;cursor:pointer}
+    .menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:11px;background:var(--surface);color:var(--text);font-size:20px;cursor:pointer}
+    .hero{position:relative;overflow:hidden;padding:118px 0 92px;border-bottom:1px solid var(--line)}
+    .hero:before{content:"";position:absolute;width:650px;height:650px;right:-190px;top:-270px;background:radial-gradient(circle,#1479dc24 0,transparent 68%);pointer-events:none}
+    .hero:after{content:"";position:absolute;width:430px;height:430px;left:-300px;bottom:-300px;background:radial-gradient(circle,#1c6bb51c 0,transparent 70%);pointer-events:none}
+    .hero-content{position:relative;z-index:1;max-width:850px}
+    .eyebrow{display:flex;align-items:center;gap:10px;color:var(--blue);font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase}
+    .eyebrow:before{content:"";width:25px;height:1px;background:var(--blue)}
+    h1{font-size:clamp(46px,7.4vw,86px);line-height:1.02;letter-spacing:-4px;margin:24px 0 22px;font-weight:850}
+    h1 span{color:var(--blue)}
+    .lead{max-width:680px;color:var(--muted);font-size:clamp(16px,2vw,19px)}
+    .hero-buttons{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:13px 20px;border-radius:10px;font-size:13px;font-weight:800;letter-spacing:.35px;border:1px solid var(--line);transition:transform .2s,border-color .2s,background .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--blue);border-color:var(--blue);color:#06111d}
+    .btn-primary:hover{background:#79bcff}
+    .btn-secondary{background:rgba(255,255,255,.025);color:var(--text)}
+    .btn-secondary:hover{border-color:#55aaff88}
+    .hero-foot{display:flex;gap:34px;flex-wrap:wrap;margin-top:72px;padding-top:24px;border-top:1px solid var(--line)}
+    .hero-stat strong{display:block;font-size:17px;letter-spacing:.2px}
+    .hero-stat small{color:var(--muted);font-size:11px;letter-spacing:.7px}
+    section{padding:88px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:34px}
+    .section-head h2{font-size:clamp(29px,4vw,43px);letter-spacing:-1.5px;line-height:1.15;margin-top:13px}
+    .section-head p{max-width:470px;color:var(--muted);font-size:14px}
+    .about-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:58px;align-items:center}
+    .about-copy h2{font-size:clamp(31px,4vw,46px);line-height:1.12;letter-spacing:-1.6px;margin:17px 0}
+    .about-copy p{color:var(--muted);font-size:15px;margin-top:13px;max-width:610px}
+    .principles{background:linear-gradient(145deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:20px;padding:34px;box-shadow:var(--shadow)}
+    .principles-mark{font-size:58px;font-weight:900;line-height:1;color:var(--blue);letter-spacing:-5px;margin:18px 0}
+    .principles h3{font-size:15px;letter-spacing:1px}
+    .principles p{color:var(--muted);font-size:13px;margin-top:10px}
+    .values{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:25px}
+    .value{padding:12px 13px;border:1px solid var(--line);border-radius:10px;color:#dce7f5;font-size:12px;font-weight:700}
+    .service-section{background:#0a111c;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service-card{position:relative;min-height:215px;background:linear-gradient(155deg,#111d2d,#0c1420);border:1px solid var(--line);border-radius:16px;padding:25px;transition:transform .2s,border-color .2s}
+    .service-card:hover{transform:translateY(-4px);border-color:#55aaff70}
+    .service-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:12px;background:#248eff16;color:var(--blue);font-size:20px;margin-bottom:21px}
+    .service-card h3{font-size:17px;margin-bottom:8px}
+    .service-card p{color:var(--muted);font-size:13px;line-height:1.7}
+    .contact-panel{display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px;padding:38px;background:linear-gradient(120deg,#111e2e,#0d1521);border:1px solid var(--line);border-radius:20px}
+    .contact-panel h2{font-size:clamp(27px,4vw,39px);letter-spacing:-1.2px;margin:12px 0 8px}
+    .contact-panel p{max-width:620px;color:var(--muted);font-size:14px}
+    .contact-details{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:22px}
+    .phone-link{display:inline-flex;align-items:center;gap:10px;color:#eaf4ff;font-size:15px;font-weight:750}
+    .phone-icon{width:35px;height:35px;display:grid;place-items:center;background:#248eff18;color:var(--blue);border-radius:10px}
+    footer{border-top:1px solid var(--line);padding:27px 0;color:var(--muted);font-size:11px}
+    .footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;align-items:center}
+    .footer-brand{color:#dce8f6;font-weight:800;letter-spacing:1px}
+    @media(max-width:900px){
+      .navlinks{gap:15px;font-size:12px}
+      .about-grid{gap:30px}
+    }
+    @media(max-width:760px){
+      .container{width:min(var(--max),calc(100% - 32px))}
+      .nav{height:70px}.menu-btn{display:block}
+      .navlinks{display:none;position:absolute;top:70px;left:0;right:0;padding:20px 24px 24px;background:#0d1624;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}
+      .navlinks.open{display:flex}
+      .hero{padding:83px 0 68px}h1{letter-spacing:-2.5px}
+      .hero-foot{margin-top:50px;gap:22px}
+      section{padding:68px 0}
+      .section-head{display:block}.section-head p{margin-top:12px}
+      .about-grid{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:1fr 1fr}
+      .contact-panel{grid-template-columns:1fr;padding:28px}
+      .contact-panel>.btn{justify-self:start}
+    }
+    @media(max-width:480px){
+      .brand{font-size:12px;letter-spacing:1px;gap:8px}.brand-mark{width:35px;height:35px}
+      .language{padding:9px 7px;font-size:12px}
+      .services-grid{grid-template-columns:1fr}
+      .service-card{min-height:unset}
+      .hero-buttons .btn{width:100%}
+      .principles{padding:25px}
+      .footer-inner{display:block}.footer-inner span{display:block;margin:5px 0}
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="HELİXSTUDİOS ana səhifə">
+        <span class="brand-mark">H</span><span>HELİXSTUDİOS</span>
+      </a>
+      <nav class="navlinks" id="navlinks" aria-label="Əsas menyu">
+        <a href="#about" data-i18n="navAbout">Haqqımızda</a>
+        <a href="#services" data-i18n="navServices">Xidmətlər</a>
+        <a href="#contact" data-i18n="navContact">Əlaqə</a>
+      </nav>
+      <div class="nav-actions">
+        <select class="language" id="languageSelect" aria-label="Dil seçimi">
+          <option value="az">🇦🇿 AZ</option>
+          <option value="tr">🇹🇷 TR</option>
+          <option value="en">🇺🇸 EN</option>
+          <option value="ru">🇷🇺 RU</option>
+          <option value="de">🇩🇪 DE</option>
+        </select>
+        <button class="menu-btn" id="menuBtn" aria-label="Menyunu aç" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow" data-i18n="heroEyebrow">Texnologiya və rəqəmsal həllər studiyası</div>
+          <h1 data-i18n="heroTitle">Gələcəyi<br><span>birlikdə qururuq.</span></h1>
+          <p class="lead" data-i18n="heroLead">HELİXSTUDİOS — proqram təminatı, rəqəmsal məhsullar və müasir texnologiya həlləri üzərində çalışan müstəqil texnologiya studiyasıdır.</p>
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#contact"><span data-i18n="startProject">LAYİHƏYƏ BAŞLA</span><span>↗</span></a>
+            <a class="btn btn-secondary" href="#services"><span data-i18n="exploreServices">XİDMƏTLƏRİ KƏŞF ET</span><span>→</span></a>
+          </div>
+          <div class="hero-foot">
+            <div class="hero-stat"><strong>Future</strong><small data-i18n="stat1">İstiqamətimiz</small></div>
+            <div class="hero-stat"><strong>Technology</strong><small data-i18n="stat2">Əsasımız</small></div>
+            <div class="hero-stat"><strong>Creativity</strong><small data-i18n="stat3">Yanaşmamız</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <div class="eyebrow" data-i18n="aboutEyebrow">Biz kimik?</div>
+          <h2 data-i18n="aboutTitle">Kiçik addımlar.<br>Böyük texnoloji hədəflər.</h2>
+          <p data-i18n="aboutP1">HELİXSTUDİOS rəqəmsal dünyada faydalı, müasir və keyfiyyətli məhsullar yaratmaq məqsədi daşıyan müstəqil texnologiya studiyasıdır.</p>
+          <p data-i18n="aboutP2">İdeyaları araşdırır, planlaşdırır və mərhələli şəkildə işlək həllərə çeviririk. Hər layihədə keyfiyyətə, funksionallığa və istifadəçi təcrübəsinə önəm veririk.</p>
+        </div>
+        <div class="principles">
+          <div class="eyebrow" data-i18n="philosophy">Fəlsəfəmiz</div>
+          <div class="principles-mark">H.</div>
+          <h3>FUTURE • TECHNOLOGY • CREATIVITY</h3>
+          <p data-i18n="principleText">Yenilik, məsuliyyət və davamlı inkişaf — gördüyümüz işlərin əsas prinsipləri.</p>
+          <div class="values">
+            <div class="value">01 / Innovation</div><div class="value">02 / Quality</div>
+            <div class="value">03 / Creativity</div><div class="value">04 / Progress</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow" data-i18n="servicesEyebrow">Nə edirik?</div><h2 data-i18n="servicesTitle">Xidmətlərimiz</h2></div>
+          <p data-i18n="servicesIntro">Müasir ehtiyaclar üçün proqramlaşdırma və texnologiya əsaslı rəqəmsal həllər hazırlayırıq.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card"><div class="service-icon">⌘</div><h3 data-i18n="service1Title">Proqram təminatı</h3><p data-i18n="service1Text">İstifadəçilər və şirkətlər üçün funksional proqramlar, sistemlər və rəqəmsal alətlər.</p></article>
+          <article class="service-card"><div class="service-icon">▤</div><h3 data-i18n="service2Title">Vebsaytların hazırlanması</h3><p data-i18n="service2Text">Müasir dizaynlı, mobil uyğun və istifadəsi rahat vebsaytlar.</p></article>
+          <article class="service-card"><div class="service-icon">▣</div><h3 data-i18n="service3Title">Mobil tətbiqlər</h3><p data-i18n="service3Text">Android və iOS üçün praktik və rahat mobil tətbiq həlləri.</p></article>
+          <article class="service-card"><div class="service-icon">◇</div><h3 data-i18n="service4Title">UI/UX və dizayn</h3><p data-i18n="service4Text">Aydın interfeyslər, vizual kimlik və istifadəçi yönümlü dizayn.</p></article>
+          <article class="service-card"><div class="service-icon">⌘</div><h3 data-i18n="service5Title">Süni intellekt həlləri</h3><p data-i18n="service5Text">AI köməkçiləri, chatbotlar və iş proseslərinin avtomatlaşdırılması.</p></article>
+          <article class="service-card"><div class="service-icon">⌁</div><h3 data-i18n="service6Title">Texnoloji sistemlər</h3><p data-i18n="service6Text">Sistem arxitekturası, texniki prototiplər və innovativ proqram həlləri.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <div class="eyebrow" data-i18n="contactEyebrow">Əlaqə saxlayın</div>
+            <h2 data-i18n="contactTitle">İdeyanızı reallaşdıraq.</h2>
+            <p data-i18n="contactText">Əməkdaşlıq, xidmətlərimiz və yeni layihələr haqqında danışmaq üçün bizimlə əlaqə saxlayın.</p>
+            <div class="contact-details">
+              <a class="phone-link" href="tel:+994708766465"><span class="phone-icon">☎</span>+994 70 876 64 65</a>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="tel:+994708766465"><span data-i18n="callNow">İNDİ ƏLAQƏ SAXLA</span><span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-brand">HELİXSTUDİOS</span>
+      <span>© <span id="year"></span> HELİXSTUDİOS. <span data-i18n="rights">Bütün hüquqlar qorunur.</span></span>
+      <span>FUTURE • TECHNOLOGY • CREATIVITY</span>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      az: {
+        navAbout:"Haqqımızda",navServices:"Xidmətlər",navContact:"Əlaqə",
+        heroEyebrow:"Texnologiya və rəqəmsal həllər studiyası",
+        heroTitle:'Gələcəyi<br><span>birlikdə qururuq.</span>',
+        heroLead:"HELİXSTUDİOS — proqram təminatı, rəqəmsal məhsullar və müasir texnologiya həlləri üzərində çalışan müstəqil texnologiya studiyasıdır.",
+        startProject:"LAYİHƏYƏ BAŞLA",exploreServices:"XİDMƏTLƏRİ KƏŞF ET",stat1:"İstiqamətimiz",stat2:"Əsasımız",stat3:"Yanaşmamız",
+        aboutEyebrow:"Biz kimik?",aboutTitle:"Kiçik addımlar.<br>Böyük texnoloji hədəflər.",
+        aboutP1:"HELİXSTUDİOS rəqəmsal dünyada faydalı, müasir və keyfiyyətli məhsullar yaratmaq məqsədi daşıyan müstəqil texnologiya studiyasıdır.",
+        aboutP2:"İdeyaları araşdırır, planlaşdırır və mərhələli şəkildə işlək həllərə çeviririk. Hər layihədə keyfiyyətə, funksionallığa və istifadəçi təcrübəsinə önəm veririk.",
+        philosophy:"Fəlsəfəmiz",principleText:"Yenilik, məsuliyyət və davamlı inkişaf — gördüyümüz işlərin əsas prinsipləri.",
+        servicesEyebrow:"Nə edirik?",servicesTitle:"Xidmətlərimiz",servicesIntro:"Müasir ehtiyaclar üçün proqramlaşdırma və texnologiya əsaslı rəqəmsal həllər hazırlayırıq.",
+        service1Title:"Proqram təminatı",service1Text:"İstifadəçilər və şirkətlər üçün funksional proqramlar, sistemlər və rəqəmsal alətlər.",
+        service2Title:"Vebsaytların hazırlanması",service2Text:"Müasir dizaynlı, mobil uyğun və istifadəsi rahat vebsaytlar.",
+        service3Title:"Mobil tətbiqlər",service3Text:"Android və iOS üçün praktik və rahat mobil tətbiq həlləri.",
+        service4Title:"UI/UX və dizayn",service4Text:"Aydın interfeyslər, vizual kimlik və istifadəçi yönümlü dizayn.",
+        service5Title:"Süni intellekt həlləri",service5Text:"AI köməkçiləri, chatbotlar və iş proseslərinin avtomatlaşdırılması.",
+        service6Title:"Texnoloji sistemlər",service6Text:"Sistem arxitekturası, texniki prototiplər və innovativ proqram həlləri.",
+        contactEyebrow:"Əlaqə saxlayın",contactTitle:"İdeyanızı reallaşdıraq.",contactText:"Əməkdaşlıq, xidmətlərimiz və yeni layihələr haqqında danışmaq üçün bizimlə əlaqə saxlayın.",
+        callNow:"İNDİ ƏLAQƏ SAXLA",rights:"Bütün hüquqlar qorunur."
+      },
+      tr: {
+        navAbout:"Hakkımızda",navServices:"Hizmetler",navContact:"İletişim",
+        heroEyebrow:"Teknoloji ve dijital çözümler stüdyosu",heroTitle:'Geleceği<br><span>birlikte inşa ediyoruz.</span>',
+        heroLead:"HELİXSTUDİOS — yazılım, dijital ürünler ve modern teknoloji çözümleri geliştiren bağımsız bir teknoloji stüdyosudur.",
+        startProject:"PROJEYE BAŞLA",exploreServices:"HİZMETLERİ KEŞFET",stat1:"Yönümüz",stat2:"Temelimiz",stat3:"Yaklaşımımız",
+        aboutEyebrow:"Biz kimiz?",aboutTitle:"Küçük adımlar.<br>Büyük teknoloji hedefleri.",
+        aboutP1:"HELİXSTUDİOS, dijital dünyada kullanışlı, modern ve kaliteli ürünler geliştirmeyi amaçlayan bağımsız bir teknoloji stüdyosudur.",
+        aboutP2:"Fikirleri araştırır, planlar ve aşamalı olarak çalışan çözümlere dönüştürürüz. Her projede kaliteye, işlevselliğe ve kullanıcı deneyimine önem veririz.",
+        philosophy:"Felsefemiz",principleText:"Yenilik, sorumluluk ve sürekli gelişim — çalışmalarımızın temel ilkeleridir.",
+        servicesEyebrow:"Ne yapıyoruz?",servicesTitle:"Hizmetlerimiz",servicesIntro:"Modern ihtiyaçlar için yazılım ve teknoloji odaklı dijital çözümler geliştiriyoruz.",
+        service1Title:"Yazılım geliştirme",service1Text:"Kullanıcılar ve şirketler için işlevsel yazılımlar, sistemler ve dijital araçlar.",
+        service2Title:"Web sitesi geliştirme",service2Text:"Modern tasarımlı, mobil uyumlu ve kullanımı kolay web siteleri.",
+        service3Title:"Mobil uygulamalar",service3Text:"Android ve iOS için pratik ve kullanışlı mobil uygulamalar.",
+        service4Title:"UI/UX ve tasarım",service4Text:"Anlaşılır arayüzler, görsel kimlik ve kullanıcı odaklı tasarım.",
+        service5Title:"Yapay zekâ çözümleri",service5Text:"AI asistanları, sohbet botları ve iş süreçlerinin otomasyonu.",
+        service6Title:"Teknolojik sistemler",service6Text:"Sistem mimarisi, teknik prototipler ve yenilikçi yazılım çözümleri.",
+        contactEyebrow:"İletişime geçin",contactTitle:"Fikrinizi hayata geçirelim.",contactText:"İş birliği, hizmetlerimiz ve yeni projeler hakkında konuşmak için bizimle iletişime geçin.",
+        callNow:"ŞİMDİ İLETİŞİME GEÇ",rights:"Tüm hakları saklıdır."
+      },
+      en: {
+        navAbout:"About",navServices:"Services",navContact:"Contact",
+        heroEyebrow:"Technology & digital solutions studio",heroTitle:'Building what<br><span>comes next.</span>',
+        heroLead:"HELİXSTUDİOS is an independent technology studio focused on software, digital products and modern technology solutions.",
+        startProject:"START A PROJECT",exploreServices:"EXPLORE SERVICES",stat1:"Our direction",stat2:"Our foundation",stat3:"Our approach",
+        aboutEyebrow:"Who we are",aboutTitle:"Small steps.<br>Ambitious technology goals.",
+        aboutP1:"HELİXSTUDİOS is an independent technology studio focused on creating useful, modern and high-quality products for the digital world.",
+        aboutP2:"We research and plan ideas, then turn them into working solutions step by step. Quality, functionality and user experience guide every project.",
+        philosophy:"Our philosophy",principleText:"Innovation, responsibility and continuous improvement are the principles behind our work.",
+        servicesEyebrow:"What we do",servicesTitle:"Our services",servicesIntro:"We create software and technology-driven digital solutions for modern needs.",
+        service1Title:"Software development",service1Text:"Functional software, systems and digital tools for individuals and businesses.",
+        service2Title:"Website development",service2Text:"Modern, mobile-friendly websites designed for a smooth user experience.",
+        service3Title:"Mobile applications",service3Text:"Practical and intuitive mobile applications for Android and iOS.",
+        service4Title:"UI/UX & design",service4Text:"Clear interfaces, visual identity and user-centred design.",
+        service5Title:"Artificial intelligence",service5Text:"AI assistants, chatbots and workflow automation solutions.",
+        service6Title:"Technology systems",service6Text:"System architecture, technical prototypes and innovative software solutions.",
+        contactEyebrow:"Get in touch",contactTitle:"Let's bring your idea to life.",contactText:"Contact us to discuss collaboration, our services or a new project.",
+        callNow:"CONTACT US NOW",rights:"All rights reserved."
+      },
+      ru: {
+        navAbout:"О нас",navServices:"Услуги",navContact:"Контакты",
+        heroEyebrow:"Студия технологий и цифровых решений",heroTitle:'Создаём<br><span>будущее вместе.</span>',
+        heroLead:"HELİXSTUDİOS — независимая технологическая студия, занимающаяся программным обеспечением, цифровыми продуктами и современными технологическими решениями.",
+        startProject:"НАЧАТЬ ПРОЕКТ",exploreServices:"НАШИ УСЛУГИ",stat1:"Наше направление",stat2:"Наша основа",stat3:"Наш подход",
+        aboutEyebrow:"Кто мы?",aboutTitle:"Маленькие шаги.<br>Большие технологические цели.",
+        aboutP1:"HELİXSTUDİOS — независимая технологическая студия, стремящаяся создавать полезные, современные и качественные цифровые продукты.",
+        aboutP2:"Мы исследуем и планируем идеи, постепенно превращая их в работающие решения. В каждом проекте важны качество, функциональность и удобство пользователей.",
+        philosophy:"Наша философия",principleText:"Инновации, ответственность и постоянное развитие — основные принципы нашей работы.",
+        servicesEyebrow:"Чем мы занимаемся?",servicesTitle:"Наши услуги",servicesIntro:"Мы разрабатываем цифровые решения на основе программирования и современных технологий.",
+        service1Title:"Разработка ПО",service1Text:"Функциональные программы, системы и цифровые инструменты для людей и компаний.",
+        service2Title:"Разработка сайтов",service2Text:"Современные, адаптивные и удобные веб-сайты.",
+        service3Title:"Мобильные приложения",service3Text:"Практичные приложения для Android и iOS.",
+        service4Title:"UI/UX и дизайн",service4Text:"Понятные интерфейсы, визуальная идентичность и дизайн для пользователей.",
+        service5Title:"Решения на основе ИИ",service5Text:"ИИ-ассистенты, чат-боты и автоматизация рабочих процессов.",
+        service6Title:"Технологические системы",service6Text:"Архитектура систем, технические прототипы и инновационные программные решения.",
+        contactEyebrow:"Свяжитесь с нами",contactTitle:"Воплотим вашу идею в жизнь.",contactText:"Свяжитесь с нами, чтобы обсудить сотрудничество, услуги или новый проект.",
+        callNow:"СВЯЗАТЬСЯ СЕЙЧАС",rights:"Все права защищены."
+      },
+      de: {
+        navAbout:"Über uns",navServices:"Leistungen",navContact:"Kontakt",
+        heroEyebrow:"Studio für Technologie und digitale Lösungen",heroTitle:'Wir gestalten<br><span>die Zukunft.</span>',
+        heroLead:"HELİXSTUDİOS ist ein unabhängiges Technologiestudio für Software, digitale Produkte und moderne Technologielösungen.",
+        startProject:"PROJEKT STARTEN",exploreServices:"LEISTUNGEN ENTDECKEN",stat1:"Unsere Richtung",stat2:"Unser Fundament",stat3:"Unser Ansatz",
+        aboutEyebrow:"Wer wir sind",aboutTitle:"Kleine Schritte.<br>Große Technologieziele.",
+        aboutP1:"HELİXSTUDİOS ist ein unabhängiges Technologiestudio mit dem Ziel, nützliche, moderne und hochwertige digitale Produkte zu entwickeln.",
+        aboutP2:"Wir erforschen und planen Ideen und verwandeln sie Schritt für Schritt in funktionierende Lösungen. Qualität, Funktionalität und Nutzererfahrung stehen im Mittelpunkt.",
+        philosophy:"Unsere Philosophie",principleText:"Innovation, Verantwortung und kontinuierliche Entwicklung sind die Grundprinzipien unserer Arbeit.",
+        servicesEyebrow:"Was wir tun",servicesTitle:"Unsere Leistungen",servicesIntro:"Wir entwickeln digitale Lösungen auf Basis von Software und moderner Technologie.",
+        service1Title:"Softwareentwicklung",service1Text:"Funktionale Software, Systeme und digitale Werkzeuge für Menschen und Unternehmen.",
+        service2Title:"Webentwicklung",service2Text:"Moderne, mobiloptimierte und benutzerfreundliche Websites.",
+        service3Title:"Mobile Anwendungen",service3Text:"Praktische und intuitive Apps für Android und iOS.",
+        service4Title:"UI/UX & Design",service4Text:"Klare Benutzeroberflächen, visuelle Identität und nutzerorientiertes Design.",
+        service5Title:"KI-Lösungen",service5Text:"KI-Assistenten, Chatbots und Automatisierung von Arbeitsabläufen.",
+        service6Title:"Technologiesysteme",service6Text:"Systemarchitektur, technische Prototypen und innovative Softwarelösungen.",
+        contactEyebrow:"Kontakt aufnehmen",contactTitle:"Wir verwirklichen Ihre Idee.",contactText:"Kontaktieren Sie uns, um über Zusammenarbeit, Leistungen oder ein neues Projekt zu sprechen.",
+        callNow:"JETZT KONTAKTIEREN",rights:"Alle Rechte vorbehalten."
+      }
+    };
+
+    const languageSelect = document.getElementById("languageSelect");
+    function setLanguage(language) {
+      const dict = translations[language] || translations.az;
+      document.documentElement.lang = language;
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+        if (dict[key]) element.innerHTML = dict[key];
+      });
+      languageSelect.value = language;
+      try { localStorage.setItem("helix-language", language); } catch (e) {}
+    }
+    languageSelect.addEventListener("change", event => setLanguage(event.target.value));
+    let savedLanguage = "az";
+    try { savedLanguage = localStorage.getItem("helix-language") || "az"; } catch (e) {}
+    setLanguage(savedLanguage);
+
+    const menuButton = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navlinks");
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+    document.querySelectorAll(".navlinks a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "☰";
+    }));
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
